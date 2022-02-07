@@ -1,0 +1,36 @@
+﻿@model ControleEstoque.Models.Produto
+
+@{
+    ViewData["Title"] = "Detalhes e Movimentações do Produto";
+}
+
+<div class= "container p-5">
+    <div class="row">
+        <div class="col-10 border border-alert-light rounded p-5">
+            <h5 class= "text-primary"><strong>Detalhes e movimentações do Produto</strong></h5>
+            <hr />
+            <h6>Nome - @Model.Nome</h6>
+            <h6>Quatidade - @Model.Quatidade</h6>
+            <h6>Preço - @Model.Preco</h6>
+            <h6>Categoria - @Model.Categoria.Nome</h6>
+            <hr />
+
+            <div class= "container border border-light rounded shadow p-5">
+                <div class= "row">
+                    <div class= "col-8">
+                        <h6>Movimentações</h6>
+                    </div>
+                    <div class= "col-4">
+                        <a asp-action= "NovaMovimentacao" asp-controller="Movimentacoes" 
+                        asp-route-produtoId="@Model.ProdutoId" class="btn btn-sm btn-outline-dark" >
+                        Nova Movimentação
+                        </a>
+                    </div>
+                </div>
+                <hr />
+                @*@await Component.InvokeAsync("Movimentaçoes", @Model.ProdutoId)*@
+            </div>
+        </div>
+    </div>
+</div>
+
